@@ -125,7 +125,10 @@ python app.py
 Then open:
 🔗 http://127.0.0.1:5000/
 
-🧠 Model Details
+---
+
+## 🧠 Model Details
+
 | Component     | Description                                 |
 | ------------- | ------------------------------------------- |
 | **Model**     | Transformer (AutoModelForQuestionAnswering) |
@@ -134,7 +137,9 @@ Then open:
 | **Dataset**   | Biomedical QA JSON dataset                  |
 | **Task**      | Extractive Question Answering               |
 
-🧾 Requirements
+---
+
+## 🧾 Requirements
 
 flask==2.3.3
 torch==2.2.2
@@ -143,7 +148,9 @@ tokenizers==0.15.1
 safetensors==0.4.3
 numpy==1.26.4
 
-📊 Implementation Resources
+---
+
+## 📊 Implementation Resources
 
 📄 Implementation Documentation – Includes architecture, dataset, and results
 🎥 Implementation Video – Demonstrates full functionality
@@ -151,7 +158,10 @@ numpy==1.26.4
 Both are available in the:
 👉 [Google Drive Folder](https://drive.google.com/drive/folders/1IKg4J0JHpu_1mmoXVefdkJNu2t4fTM9n?usp=sharing)
 
-🧰 Tech Stack
+---
+
+## 🧰 Tech Stack
+
 | Layer               | Technology                       |
 | ------------------- | -------------------------------- |
 | **Frontend**        | HTML, CSS, JavaScript, Bootstrap |
@@ -160,14 +170,18 @@ Both are available in the:
 | **NLP Library**     | Hugging Face Transformers        |
 | **Dataset Format**  | JSON                             |
 
-👩‍💻 Author
+---
 
-Anjali
+## 👩‍💻 Author
+
+Anjali Thakur
 📍 New Delhi, India
 📧 [Email](anjali.thakur0904@gmail.com)
 🔗 [LinkedIn](https://www.linkedin.com/in/anjali-thakur4/)
 
-🏁 Future Enhancements
+---
+
+## 🏁 Future Enhancements
 
 - Integration with BioBERT / ClinicalBERT
 
@@ -177,10 +191,14 @@ Anjali
 
 - Interactive dashboard for patient data insights
 
-🏷️ GitHub Topics
+---
+
+## 🏷️ GitHub Topics
 
 flask nlp pytorch ai healthcare qa
 
-🧩 Quote
+---
+
+## 🧩 Quote
 
 🧠 “Ask clinical questions. Get instant, accurate answers.”
