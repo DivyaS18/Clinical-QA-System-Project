@@ -1,12 +1,13 @@
 # 🩺 Clinical QA System Project  
 ### *Natural Language Querying for Clinical Information Extraction (NLQ-CIE)*  
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-Framework-black?logo=flask)
-![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-orange?logo=pytorch)
-![Hugging%20Face](https://img.shields.io/badge/HuggingFace-Transformers-yellow?logo=huggingface)
-![NLP](https://img.shields.io/badge/NLP-Healthcare%20AI-green)
-![Status](https://img.shields.io/badge/Status-Active-success)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://www.python.org/)  
+[![Flask](https://img.shields.io/badge/Flask-Framework-lightgrey?logo=flask)](https://flask.palletsprojects.com/)  
+[![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-orange?logo=pytorch)](https://pytorch.org/)  
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-yellow?logo=huggingface)](https://huggingface.co/docs/transformers/index)  
+[![NLP](https://img.shields.io/badge/NLP-Text%20Processing-blueviolet)](https://en.wikipedia.org/wiki/Natural_language_processing)  
+[![Healthcare AI](https://img.shields.io/badge/Healthcare%20AI-Medical%20Data-green)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6616181/)  
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
 
 ---
 
