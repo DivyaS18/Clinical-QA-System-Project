@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Logistic Cargo</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background image styling */
+        body {
+            background-image: url("/website/website_home_bg.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #0a1d3a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .nav-buttons {
+            position: absolute;
+            top: 20px;
+            right: 100px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-buttons a {
+            text-decoration: none;
+            background-color: #ffa500;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #e69500;
+        }
+
+        /* Login button */
+        .login-btn {
+            background-color: #ffa500;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background-color: #e69500;
+        }
+
+        /* Main section styling */
+        .container {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            max-width: 500px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Contact info and form section styling */
+        .contact-info div {
+            margin-bottom: 10px;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            background-color: #ffa500;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .contact-form button:hover {
+            background-color: #e69500;
+        }
+
+        .message {
+            margin-top: 10px;
+            color: green;
+            font-size: 14px;
+        }
+
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .popup-header {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .popup input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .popup button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffa500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background-color: #e69500;
+        }
+
+        .popup-close {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            float: right;
+        }
+
+        /* Overlay styling */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        /* Feedback popup styling */
+#feedbackOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+#feedbackPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+#feedbackPopup h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+#feedbackPopup .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Contact Us</h1>
+        <div class="nav-buttons">
+            <a href="/">Back to Home</a>
+            <a href="/qa">Go to QA</a>
+        </div>
+        <button class="login-btn" id="loginBtn">Login</button>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <section>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Got ideas? We’re all ears! Help us shape a smarter future with your valuable feedback.</p>
+        </section>
+
+        <div class="contact-info">
+            <div><strong>Phone Number:</strong> +91 0123456789</div>
+            <div><strong>Email Address:</strong> info@example.com</div>
+            <div><strong>Address:</strong> 123 Main St, Anytown, USA</div>
+        </div>
+
+        <form id="feedbackForm" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="address" placeholder="Your Address">
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <p class="message" id="successMessage" style="display: none;">Your feedback has been saved locally!</p>
+    </div>
+
+    <!-- Login/Signup Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="loginPopup">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <h2>Login / Signup</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button id="loginSubmit">Login</button>
+        <p style="text-align: center; margin: 10px 0;">or</p>
+        <input type="text" id="newUsername" placeholder="New Username" required>
+        <input type="email" id="newEmail" placeholder="Email" required>
+        <input type="password" id="newPassword" placeholder="New Password" required>
+        <button id="signupSubmit">Signup</button>
+    </div>
+     <!-- Feedback Submitted Popup -->
+<div class="overlay" id="feedbackOverlay"></div>
+<div class="popup" id="feedbackPopup">
+    <button class="close-btn" id="closeFeedbackPopup">&times;</button>
+    <h2>Your feedback has been submitted!</h2>
+
+    <!-- JavaScript to Handle Pop-up and Local Storage -->
+    <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const loginPopup = document.getElementById('loginPopup');
+        const overlay = document.getElementById('overlay');
+        const closePopup = document.getElementById('closePopup');
+        const loginSubmit = document.getElementById('loginSubmit');
+        const signupSubmit = document.getElementById('signupSubmit');
+
+        // Show popup
+        loginBtn.addEventListener('click', () => {
+            loginPopup.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        // Close popup
+        const closeLoginPopup = () => {
+            loginPopup.style.display = 'none';
+            overlay.style.display = 'none';
+        };
+
+        closePopup.addEventListener('click', closeLoginPopup);
+        overlay.addEventListener('click', closeLoginPopup);
+
+        // Handle Login submission
+        loginSubmit.addEventListener('click', () => {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                localStorage.setItem('loginData', JSON.stringify({ username, password }));
+                alert('Login successful!');
+                closeLoginPopup();
+                location.reload();
+            }
+        });
+
+        // Handle Signup submission
+        signupSubmit.addEventListener('click', () => {
+            const newUsername = document.getElementById('newUsername').value;
+            const newEmail = document.getElementById('newEmail').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            if (newUsername && newEmail && newPassword) {
+                localStorage.setItem('signupData', JSON.stringify({ newUsername, newEmail, newPassword }));
+                alert('Signup successful!');
+                closeLoginPopup();
+                location.reload();
+            }
+        });
+        // Feedback Form Submission Handling
+const feedbackForm = document.getElementById('feedbackForm');
+const feedbackPopup = document.getElementById('feedbackPopup');
+const feedbackOverlay = document.getElementById('feedbackOverlay');
+const closeFeedbackPopup = document.getElementById('closeFeedbackPopup');
+
+// Show feedback submission popup
+const showFeedbackPopup = () => {
+    feedbackPopup.style.display = 'block';
+    feedbackOverlay.style.display = 'block';
+};
+
+// Close feedback popup
+const closeFeedbackPopupFunc = () => {
+    feedbackPopup.style.display = 'none';
+    feedbackOverlay.style.display = 'none';
+};
+
+closeFeedbackPopup.addEventListener('click', closeFeedbackPopupFunc);
+feedbackOverlay.addEventListener('click', closeFeedbackPopupFunc);
+
+feedbackForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    // Logic to save feedback data (if necessary)
+    const feedbackData = {
+        name: feedbackForm.name.value,
+        email: feedbackForm.email.value,
+        address: feedbackForm.address.value,
+        message: feedbackForm.message.value,
+    };
+
+    // Save to localStorage (optional)
+    localStorage.setItem('feedbackData', JSON.stringify(feedbackData));
+
+    // Show popup
+    showFeedbackPopup();
+
+    // Clear the form
+    feedbackForm.reset();
+});
+    </script>
+
+</body>
+</html>

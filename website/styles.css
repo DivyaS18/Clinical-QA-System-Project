@@ -1,0 +1,53 @@
+body {
+    background-image: url("C:/Users/anjal/OneDrive/Desktop/website/A1.JPG");
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.container {
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+}
+
+.about, .feedback, .qa-form {
+    margin: 20px 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Spinner styles */
+.spinner {
+    display: none;
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid #ffa500;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error message styles */
+.error-message {
+    color: #ff6b6b;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Answer styles */
+#answer {
+    transition: all 0.3s ease;
+    min-height: 20px;
+}

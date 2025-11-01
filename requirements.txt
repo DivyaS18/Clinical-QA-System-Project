@@ -1,0 +1,6 @@
+flask==2.3.3
+torch==2.2.2
+transformers==4.39.3
+tokenizers==0.15.1
+safetensors==0.4.3
+numpy==1.26.4

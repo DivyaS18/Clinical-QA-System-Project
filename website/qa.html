@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Answering</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("/website/qa_background.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #0a1d3a;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        header h1 {
+            color: #ffffff;
+            font-size: 24px;
+        }
+        .back-home {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #ffa500;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .back-home:hover {
+            background-color: #e69500;
+        }
+        .qa-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .qa-form label {
+            font-size: 18px;
+            color: #333;
+            margin-top: 15px;
+        }
+        .qa-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+            height: 150px;
+        }
+        .qa-form button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ffa500;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .qa-form button:hover {
+            background-color: #e69500;
+        }
+        .output {
+            margin-top: 20px;
+            background-color: rgba(245, 245, 245, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .output h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .output p {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-home">Back to Home</a>
+    <div class="container">
+        <header>
+            <h1>Discover Answers with Ease</h1>
+        </header>
+        <section class="qa-form">
+            <form id="qaForm">
+                <label for="report">Paste Clinical Report:</label>
+                <textarea id="report" name="report" required></textarea>
+                
+                <label for="question">Enter your Question:</label>
+                <textarea id="question" name="question" required></textarea>
+                
+                <button type="submit">Get Answer</button>
+                <div class="spinner"></div>
+            </form>
+            <div class="output">
+                <h2>Answer:</h2>
+                <p id="answer">Your answer will appear here after submission.</p>
+                <div id="error" class="error-message"></div>
+            </div>
+
+            <script>
+                document.getElementById('qaForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const spinner = document.querySelector('.spinner');
+                    const answerEl = document.getElementById('answer');
+                    const errorEl = document.getElementById('error');
+                    
+                    // Show loading spinner
+                    spinner.style.display = 'block';
+                    answerEl.textContent = '';
+                    errorEl.textContent = '';
+                    
+                    // Add timeout and error handling
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 30000);
+                    
+                    fetch('/answer', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(new FormData(e.target)),
+                        signal: controller.signal
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            return response.json().then(err => { throw err; });
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.error) {
+                            errorEl.textContent = data.error;
+                            answerEl.textContent = '';
+                        } else {
+                            answerEl.textContent = data.answer || 'No answer found';
+                            errorEl.textContent = '';
+                        }
+                    })
+                    .catch(error => {
+                        errorEl.textContent = error.error || 'An error occurred. Please try again.';
+                        answerEl.textContent = '';
+                    })
+                    .finally(() => {
+                        spinner.style.display = 'none';
+                    });
+                });
+            </script>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Blog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f7f9;
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(to right, #1a1f36, #283e51);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 60px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 12px;
+            color: #ffd700;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all 0.3s ease-in-out;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            border-bottom: 2px solid #ffd700;
+        }
+
+        /* CONTENT SECTION */
+        .main-content {
+            padding: 140px 60px 40px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 36px;
+            color: #1a1f36;
+            font-weight: 700;
+        }
+
+        .main-content p {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        /* ARTICLES */
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 50px 60px;
+        }
+
+        .article {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article:hover {
+            transform: translateY(-5px);
+        }
+
+        .article img {
+            display: block; /* Makes it a block element */
+            margin: 0 auto; /* Centers it horizontally */
+            width: 80%; /* Adjust width to fit better */
+            height: 200px; /* Maintains aspect ratio */
+            border-radius: 12px;
+            margin-bottom: 10px;
+            object-fit: contain;
+            
+        }
+
+        .tag {
+            background: limegreen;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .article h2 {
+            font-size: 22px;
+            margin: 12px 0;
+        }
+
+        .article p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .article a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .article a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1a1f36;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i> Healthcare Nexus
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/qa">QA Report</a></li>
+            <li><a href="/tiles">Government Schemes</a></li>
+            <li><a href="/index">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="main-content">
+        <h1 id="dynamic-text"></h1>
+        <p>Stay updated with the latest trends, tips, and insights in healthcare.</p>
+    </section>
+
+    <section class="articles">
+        <!-- Repeat this block for 12 articles with respective links -->
+        <div class="article">
+            <span class="tag">Health</span>
+            <img src="/website/Nutrition.jpg" alt="Healthy Lifestyle">
+            <h2>Nutrition and Wellness Tips</h2>
+            <p>Explore the best nutrition tips.</p>
+            <a href="https://www.health.harvard.edu/topics/diet-and-weight-loss">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Mental Health</span>
+            <img src="/website/Mental Health.jpg" alt="Mental Health">
+            <h2>The Importance of Mental Health</h2>
+            <p>Techniques to reduce stress.</p>
+            <a href="https://www.nimh.nih.gov/health/topics">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Medicine</span>
+            <img src="/website/Advancement in Telemedicine.jpg" alt="New Medicines">
+            <h2>Breakthrough in Medicine</h2>
+            <p>Latest innovations in medicine.</p>
+            <a href="https://www.sciencedirect.com/science/article/pii/S0140673620306291">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Exercise</span>
+            <img src="/website/exercise.jpg" alt="Healthy Lifestyle">
+            <h2>How Exercise Boosts Immunity</h2>
+            <p>Explore the best nutrition tips.</p>
+            <a href="https://www.health.harvard.edu/staying-healthy/how-to-boost-your-immune-system?utm_source=chatgpt.com">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Care</span>
+            <img src="/website/preventive care.jpg" alt="Mental Health">
+            <h2>Preventive Care Measures</h2>
+            <p>Explore effective healthcare strategies to prevent diseases and improve well-being.</p>
+            <a href="https://www.mayoclinic.org/tests-procedures/cosmetic-surgery/care-at-mayo-clinic/pcc-20385140">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Surgery</span>
+            <img src="/website/surgery.jpg" alt="New Medicines">
+            <h2>Advancements in Surgery</h2>
+            <p>Cutting-edge surgical techniques are making procedures safer and more effective.</p>
+            <a href="https://my.clevelandclinic.org/departments/digestive/research-innovations/robotic-surgery-innovations">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Heart</span>
+            <img src="/website/heart.jpg" alt="Healthy Lifestyle">
+            <h2>Tips for a Healthy Heart</h2>
+            <p>Simple lifestyle changes can significantly improve your heart health and longevity.</p>
+            <a href="https://www.heart.org/">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Cancer</span>
+            <img src="/website/cancer.jpg" alt="Mental Health">
+            <h2>Progress in Cancer Research</h2>
+            <p>Scientists are making breakthroughs in cancer treatments and early detection methods.</p>
+            <a href="https://www.cancer.gov/research/progress">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Vaccine</span>
+            <img src="/website/vaccine.jpg" alt="New Medicines">
+            <h2> New Vaccine Developments</h2>
+            <p> Learn about the latest vaccine research and innovations combating infectious diseases.</p>
+            <a href="https://www.cdc.gov/vaccines/index.html">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">Covid</span>
+            <img src="/website/covid.jpg" alt="Healthy Lifestyle">
+            <h2> Latest on COVID-19</h2>
+            <p>Stay informed with the most recent updates on COVID-19 treatments and variants.</p>
+            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">Read More</a>
+        </div>
+        <div class="article">
+            <span class="tag">AI</span>
+            <img src="/website/A1.jpg" alt="Mental Health">
+            <h2>The Role of AI in Healthcare</h2>
+            <p> Learn how artificial intelligence is revolutionizing medical diagnostics and patient care.</p>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7601856/">Read More</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Healthcare Nexus. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let text = " Latest Healthcare News:  Your Source for Medical Knowledge";
+            let index = 0;
+            let speed = 100; // Typing speed in milliseconds
+            let targetElement = document.getElementById("dynamic-text");
+    
+            function typeEffect() {
+                if (index < text.length) {
+                    targetElement.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeEffect, speed);
+                }
+            }
+    
+            typeEffect();
+        });
+    </script>
+    
+</body>
+</html>

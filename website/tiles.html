@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Healthcare Resources</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: url('/website/background title.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #0a1d3a, #1e3c72);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .home-btn {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ffa500;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #e69500;
+    }
+
+    .tile-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px auto;
+      max-width: 1200px;
+    }
+
+    .tile {
+      width: 45%;
+      min-height: 250px;
+      margin: 20px;
+      border-radius: 15px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .tile:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ✅ Original gradient colors preserved */
+    .tile-1 { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
+    .tile-2 { background: linear-gradient(135deg, #36d1dc, #5b86e5); }
+    .tile-3 { background: linear-gradient(135deg, #ff512f, #dd2476); }
+    .tile-4 { background: linear-gradient(135deg, #1d976c, #93f9b9); }
+
+    .tile img {
+      width: 300px;     /* Increased size */
+      height: 300px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      flex-shrink: 0;
+}
+
+
+    .tile span {
+      z-index: 1;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #0a1d3a, #1e3c72);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .tile {
+        width: 90%;
+      }
+
+      .home-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <button class="home-btn" onclick="location.href='/website/Home.html'">Home</button>
+    Healthcare Resources & Services
+  </div>
+
+  <div class="tile-container">
+    <!-- ✅ Each tile has an image + gradient background -->
+    <div class="tile tile-1" onclick="location.href='https://pmjay.gov.in/'">
+      <img src="/website/ss1.jpeg" alt="Card Icon" />
+      <span>Ayushman Bharat Card - Apply Now</span>
+    </div>
+
+    <div class="tile tile-2" onclick="location.href='https://www.india.gov.in/list-hospitals'">
+      <img src="/website/ss2 (2).jpeg" alt="Hospital Icon" />
+      <span>Government Hospitals - Find Nearby</span>
+    </div>
+
+    <div class="tile tile-3" onclick="location.href='https://www.india.gov.in/national-health-policy-2017'">
+      <img src="/website/ss3 (2).jpeg" alt="Policy Icon" />
+      <span>Government Healthcare Policies</span>
+    </div>
+
+    <div class="tile tile-4" onclick="location.href='https://www.mohfw.gov.in/'">
+      <img src="/website/ss4.jpeg" alt="Resources Icon" />
+      <span>Other Important Healthcare Resources</span>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2024 Healthcare Portal. All Rights Reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
