@@ -24,6 +24,7 @@ Built with **Flask**, **PyTorch**, and **Hugging Face Transformers**, this proje
 ## 📁 Project Structure  
 
 clinical_qa_system_project/
+
 ├─ app.py — Main Flask application file  
 ├─ requirements.txt — Python dependencies  
 ├─ BCQA_Datasets.json — Dataset used for fine-tuning QA model  
