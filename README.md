@@ -175,10 +175,9 @@ Both are available in the:
 
 ## 👩‍💻 Author
 
-Anjali Thakur
-📍 New Delhi, India
-📧 [Email](anjali.thakur0904@gmail.com)
-🔗 [LinkedIn](https://www.linkedin.com/in/anjali-thakur4/)
+Divyanshi Saxena
+📍 Greater Noida, India
+📧 [Email](saxenadivyanshi727@gmail.com)
 
 ---
 
